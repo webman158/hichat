@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="hichat | a simple chat application built with node.js and websocket">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hichat</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="shortcut icon" href="./content/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="wrapper">
+      <div class="left">
+        <h1>在线成员 </h1>
+        <ul id="userList">
+        </ul>
+      </div>
+      <div class="right">
+        <!-- 顶部信息 -->
+        <div class="banner">
+            <h1>黑马前端13期嗨聊室  <span id="status"></span></h1>
+        </div>
+        <!-- 聊天历史 -->
+        <div class="chat-thread">
+            <ul id="historyMsg">
+            </ul>
+            <span id="msgTip" class="msgTip"></span>
+        </div>
+        <!-- 操作栏 -->
+        <div class="controls">
+            <div class="items">
+                <!-- 颜色输入框 -->
+                <label for="colorStyle" class="icon color">
+                  <input id="colorStyle" type="color" placeHolder='#000' title="font color" />
+                </label>
+                <!-- emoji -->
+                <div class="icon emoji" id="emoji"></div>
+                <label for="sendImage" class="icon imageLable">
+                    <!-- <input type="button" value="image"  /> -->
+                    <input id="sendImage" type="file" value="image"/>
+                </label>
+                <!-- 清除聊天历史按钮 -->
+                <div class="icon clearBtn" id="clearBtn"></div>
+            </div>
+            <textarea id="messageInput" placeHolder="回车发送"></textarea>
+            <!-- <input type="button" value="SEND"> -->
+            <button id="sendBtn" type="button" name="button" class="sendBtn">发 送(Enter)</button>
+            <!-- emoji表情容器 -->
+            <div id="emojiWrapper">
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- 登录框 -->
+    <div id="loginWrapper">
+        <div class="box">
+          <p id="info">即将连接到服务器...</p>
+          <div id="nickWrapper">
+              <label for="avatar" class="imageLable avatar">
+                  <input type="button" value="image"/>
+                  <input id="avatar" type="file" value="image"/>
+
+              </label>
+              <p>你可以更换头像哦</p>
+              <input type="text" placeHolder="请输入你的昵称" class="nickname" id="nicknameInput" />
+              <button type="button" name="button" class="loginBtn" id="loginBtn">进 入</button>
+          </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script/hichat.js"></script>
+</body>
+
+</html>
